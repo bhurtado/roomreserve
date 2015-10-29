@@ -1,0 +1,23 @@
+﻿@model ConferenceRoomReservation.Domain.Models.Reservation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Lookup</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("List", "RoomReservation"))
+        {
+            <p>Your Email Address: @Html.TextBoxFor(x => x.ReserversEmail)</p>
+            <input type="submit" value="Lookup Reservations" />
+        }
+    </div>
+</body>
+</html>

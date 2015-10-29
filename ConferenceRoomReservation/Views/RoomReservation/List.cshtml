@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ConferenceRoomReservation.Domain.Models.Reservation>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReserversName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReserversEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReserversContactNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomId)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReserversName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReserversEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReserversContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomId)
+            </td>
+            <td>
+                @using (Html.BeginForm("Edit", "RoomReservation"))
+                {
+                    @Html.Hidden("ReserveId", item.Id)
+                    <input type="submit" value="Edit" />
+                }
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
